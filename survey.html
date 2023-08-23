@@ -22,15 +22,36 @@
           </style>
         </head>
         <body>
+          <script>
+          </script>
           <form>
             <h3><u>Welcome To The Survey Page!</u></h3>
             <h4>Let's Begin:</h4>
             <div id="first">
               <label for="slider1">How much do you like Mountain Dew?</label>
               <input type="range" id="sliderOne" name="slider1" min=0 max=100 value=0>
-              <div class="score" id="ratingOne">0</div>
             </div>
+            <p>What are your thoughts on Misty Draeger?</p>
+            <label><input type="radio" id="option1" name='misty' value="She is nice">She is nice</label>
+            <label><input type="radio" id="option2" name='misty' value="She is fat">She is fat</label>
+
+            <p>Select the number '2' if you aren't a robot like Mr. DuFrane!</p>
+            <label><input type="radio" name='test' value="1">1</label>
+            <label><input type="radio" name='test' id='2' value="2">2</label>
+            <label><input type="radio" name='test' value="3">3</label>
+            <label><input type="radio" name='test' value="4">4</label>
+
+            <p>Which Mountain Dew's do you prefer? <i>Select all that apply</i></p>
+            <label><input type="checkbox" name="checky" value="baja blast">Baja blast</label>
+            <label><input type="checkbox" name="checky" value="regular">Regular</label>
+            <label><input type="checkbox" name="checky" value="lightning">Lightning</label>
+            <label><input type="checkbox" name="checky" value="zero/no sugar">Zero/No Sugar</label>
+            
+            <br>
+            <br>
 
           </form>
+          <a href='fakesubmitpage.html'><button onclick="checkIt()">Submit!</button></a>
+
         </body>
       </html>
