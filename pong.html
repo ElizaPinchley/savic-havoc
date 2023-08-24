@@ -89,7 +89,9 @@
     ball.y += ball.dy;
 
     // Ball goes out of bounds at the bottom
-    phrases = ["Haha, Pokey!", "Your Name Isn't Chris, Or Is It?", "God Is My Middle Name!", "You're Just As Good As Ms. Wangen!"]
+    phrases = ["Haha, Pokey!", "Your Name Isn't Chris, Or Is It?", "God Is My Middle Name!", "You're Just As Good As Ms. Wangen!",
+  "Wow! Just As Good As My Pool Store!", "CTA'S WERE DUE YESTERDAY!!!", "Huh?", "Too Slow? Is This Misty D.?", "Even I Have Better Reflexes!",
+  "Fail, Fail, Fail! Just Like Your Grades!", "Ehm, Why Am I Here!?? -Misty D.", "Hehehe! The Ransom!", "Don't Even Call My Initials On That!!!"]
     if (ball.y + ball.radius > canvas.height) {
       var phrase = phrases[Math.floor(Math.random()*phrases.length)];
       showMessage(phrase);
