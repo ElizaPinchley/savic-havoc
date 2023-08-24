@@ -42,8 +42,8 @@
     x: canvas.width / 2,
     y: canvas.height / 2,
     radius: 10,
-    dx: 2,
-    dy: -2,
+    dx: 4,
+    dy: -4,
   };
 
   const paddle = {
@@ -51,7 +51,7 @@
     height: 10,
     x: (canvas.width - 100) / 2,
     y: canvas.height - 20,
-    speed: 7,
+    speed: 17,
   };
 
   function showMessage(message) {
@@ -95,8 +95,8 @@
       showMessage(phrase);
       ball.x = canvas.width / 2;
       ball.y = canvas.height / 2;
-      ball.dx = 2;
-      ball.dy = -2;
+      ball.dx = 4;
+      ball.dy = -4;
     }
 
     // Ball collision with walls
