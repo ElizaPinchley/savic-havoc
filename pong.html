@@ -12,11 +12,16 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 10px 20px;
+    padding: 10px;
     border-radius: 5px;
-    font-size: 18px;
     z-index: 9999;
+  }
+
+  .popup-image {
+    display: block;
+    max-width: 100%;
+    max-height: 300px;
+    margin: 0 auto;
   }
   body {
     margin: 0;
@@ -34,7 +39,78 @@
 <body>
 <canvas id="gameCanvas" width="800" height="600"></canvas>
 <script>
+ const images = [
+    "/Users/colintoryfter/Pictures/Photos Library.photoslibrary/resources/derivatives/2/23361F6B-68F8-4074-9DE9-4552BC804A9A_1_105_c.jpeg",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/351F95A5-CF01-4CA8-B9A3-F1EF35C18CA8_1_105_c.jpeg",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/283EAC6D-C475-4364-880B-2701DDFF0B78_1_105_c.jpeg",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/7A8BE304-9ABA-4522-84C7-B875F32BE003_1_105_c.jpeg",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/0F93BB0F-73AC-48B2-A6AF-8D530D197FB4_1_105_c.jpeg",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_6077.jpeg",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_5487.jpeg",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_6073.jpeg",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_6070.jpeg",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_5383.jpeg",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/Screenshot_2023-02-16_7.58.01_AM.png",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_5017.jpeg",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_5710.jpeg",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_5464.jpeg",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_6074.jpeg",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_4820.JPG",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_5985.jpeg",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_5228.jpeg",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_4713.GIF",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/B.Piano.png",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_4990.JPG",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/Screenshot_20230609-202540.png",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_5771.JPG",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_4821.JPG",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_4561.jpeg",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_4717.jpeg",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_4716.jpeg",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/image.png",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_4695.JPG",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_4697.JPG",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_4635.jpeg",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_4415.jpeg",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_4150.PNG",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_1102.jpeg",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_4340.jpeg",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_3835.JPG",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_3909.jpeg",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_3503.jpeg",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_4150.PNG",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_3834.jpeg",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/0f434ad7-b5e4-42e1-a201-6ad6583984ff.mp4_1668316371668_12.mp4",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_6068.jpeg",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/windows_xp.gif",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_5187.JPG",
+    "/Users/colintoryfter/Downloads/savic-havoc-main/IMG_4791.JPG",
+    
+    // Add more image URLs here
 
+  ];
+
+  function getRandomImage() {
+    const randomIndex = Math.floor(Math.random() * images.length);
+    return images[randomIndex];
+  }
+
+  function showMessageWithImage(imageURL) {
+    const popup = document.createElement("div");
+    popup.className = "popup";
+
+    const image = new Image();
+    image.src = imageURL;
+    image.className = "popup-image";
+
+    popup.appendChild(image);
+
+    document.body.appendChild(popup);
+
+    setTimeout(() => {
+      document.body.removeChild(popup);
+    }, 2000); // Popup will disappear after 2 seconds
+  }
   const canvas = document.getElementById("gameCanvas");
   const ctx = canvas.getContext("2d");
 
@@ -100,8 +176,8 @@
 
 
     if (ball.y + ball.radius > canvas.height) {
-      var phrase = phrases[Math.floor(Math.random()*phrases.length)];
-      showMessage(phrase);
+      const randomImageURL = getRandomImage();
+      showMessageWithImage(randomImageURL);
       ball.x = canvas.width / 2;
       ball.y = canvas.height / 2;
       ball.dx = 4;
