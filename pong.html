@@ -89,9 +89,16 @@
     ball.y += ball.dy;
 
     // Ball goes out of bounds at the bottom
-    phrases = ["Haha, Pokey!", "Your Name Isn't Chris, Or Is It?", "God Is My Middle Name!", "You're Just As Good As Ms. Wangen!",
-  "Wow! Just As Good As My Pool Store!", "CTA'S WERE DUE YESTERDAY!!!", "Huh?", "Too Slow? Is This Misty D.?", "Even I Have Better Reflexes!",
-  "Fail, Fail, Fail! Just Like Your Grades!", "Ehm, Why Am I Here!?? -Misty D.", "Hehehe! The Ransom!", "Don't Even Call My Initials On That!!!"]
+    //phrases = ["Haha, Pokey!", "Your Name Isn't Chris, Or Is It?", "God Is My Middle Name!", "You're Just As Good As Ms. Wangen!",
+  //"Wow! Just As Good As My Pool Store!", "CTA'S WERE DUE YESTERDAY!!!", "Huh?", "Too Slow? Is This Misty D.?", "Even I Have Better Reflexes!",
+  //"Fail, Fail, Fail! Just Like Your Grades!", "Ehm, Why Am I Here!?? -Misty D.", "Hehehe! The Ransom!", "Don't Even Call My Initials On That!!!"]
+      phrases = ['Big Honking Mistake!!! -Karl', 'Do You Need Super Savic?? -B. Savic', 'Haaaah! Orange Skins For You! -J. Schatz', 'HAHAHA! You Finally Died! -K. Meyer',
+    'I Ordered Chicken Wings An Hour Ago!! -J. Wetherall', ':) -K. Winters', 'AAAH! You Missed That Like How I Miss Birds!! -T. Hillmann', 
+    'Fay-leez Coop-lay-an-ohs! Maybe You Should Have Went Left! -S. Wright', 'You Failed Just Like My Banana Cream Pie Recipe! -M. Payne', 
+    'I Bet You Want That Sugar Honey Iced Tea!!! -C. Maxwell', 'Ha-ha-ha! Bruja! -K. Feudner', 'You Damn Democrat! -Tia Esme', 'Ahora, Vas A Recibir El Cuchillo!!! -Rosa',
+    'Hoo, hoo! You Sure As Hell Dont Know It! -B. Wangen']
+
+
     if (ball.y + ball.radius > canvas.height) {
       var phrase = phrases[Math.floor(Math.random()*phrases.length)];
       showMessage(phrase);
